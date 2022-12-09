@@ -1,0 +1,14 @@
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\bin\Debug\netcoreapp3.1\Labyrinth.exe
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\bin\Debug\netcoreapp3.1\Labyrinth.deps.json
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\bin\Debug\netcoreapp3.1\Labyrinth.runtimeconfig.json
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\bin\Debug\netcoreapp3.1\Labyrinth.runtimeconfig.dev.json
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\bin\Debug\netcoreapp3.1\Labyrinth.dll
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\bin\Debug\netcoreapp3.1\Labyrinth.pdb
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.csproj.AssemblyReference.cache
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.AssemblyInfoInputs.cache
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.AssemblyInfo.cs
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.csproj.CoreCompileInputs.cache
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.dll
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.pdb
+C:\Users\tanulo\source\repos\Labyrinth\Labyrinth\obj\Debug\netcoreapp3.1\Labyrinth.genruntimeconfig.cache
