@@ -1,0 +1,15 @@
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Labyrinth.exe
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Labyrinth.deps.json
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Labyrinth.runtimeconfig.json
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Labyrinth.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Labyrinth.pdb
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.csproj.AssemblyReference.cache
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.AssemblyInfoInputs.cache
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.AssemblyInfo.cs
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.csproj.CoreCompileInputs.cache
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\refint\Labyrinth.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.pdb
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.genruntimeconfig.cache
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\ref\Labyrinth.dll
