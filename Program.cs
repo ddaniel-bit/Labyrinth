@@ -352,6 +352,8 @@ namespace Labyrinth
                         } while (olvasas_sikreres);
                     }
                     palya_betoltese(palya_listaban);
+                    
+                    
                 }
                 else if (mode == 2)
                 {
@@ -377,9 +379,9 @@ namespace Labyrinth
                 Console.WindowHeight = oszlopok + 10;
                 Console.WindowWidth = sorok + 10;
                 char[,] game_level = new char[oszlopok, sorok];
-                for (int sor_index = 0; sor_index < sorok - 1; sor_index++)
+                for (int sor_index = 0; sor_index < sorok; sor_index++)
                 {
-                    for (int oszlop_index = 0; oszlop_index < oszlopok - 1; oszlop_index++)
+                    for (int oszlop_index = 0; oszlop_index < oszlopok; oszlop_index++)
                     {
                         if (palya_listaban[oszlop_index][sor_index] == '.')
                         {
@@ -392,25 +394,85 @@ namespace Labyrinth
                     }
                 }
 
+
                 int kozepre_oszlop = 5;
                 int kozepre_sor = 7;
-                for (int i7 = 0; i7 < oszlopok; i7++)
+                int yPos = 0;
+                int xPos = 0;
+                for (int isor = 0; isor < oszlopok; isor++)
                 {
                     string sor = "";
-                    for (int i8 = 0; i8 < sorok; i8++)
+                    for (int ioszlop = 0; ioszlop < sorok; ioszlop++)
                     {
-                        sor += game_level[i7, i8];
+                        sor += game_level[isor, ioszlop];
+                        if (mezo_ellenorzes(game_level[isor, ioszlop], false))
+                        {
+                            yPos = isor;
+                            xPos = ioszlop;
+                        }
                     }
                     Console.SetCursorPosition(kozepre_oszlop, kozepre_sor);
                     Console.WriteLine(sor);
                     kozepre_sor++;
                 }
+                singlepalyer_game(game_level, xPos, yPos, oszlopok, sorok);
+            }
+            static void singlepalyer_game(char[,] palya_matrix, int xPos, int yPos, int oszlopok, int sorok)
+            {
+                Console.SetCursorPosition(xPos + 5, yPos + 7);
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine(palya_matrix[yPos, xPos]);
 
                 while (true)
                 {
+                    char bill = Console.ReadKey(true).KeyChar;
+                    if (bill == 'w' || bill == 'a' || bill == 's' || bill == 'd')
+                    {
+                        if (bill == 'w' && yPos != 0 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('W') && mozgas_iranya(palya_matrix[yPos - 1, xPos]).Contains('S') && mezo_ellenorzes(palya_matrix[yPos - 1, xPos], true))
+                        {
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                            yPos--;
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                        }
+                        if (bill == 'a' && xPos != 0 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('A') && mozgas_iranya(palya_matrix[yPos, xPos - 1]).Contains('D') && mezo_ellenorzes(palya_matrix[yPos, xPos - 1], true))
+                        {
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                            xPos--;
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                        }
+                        if (bill == 's' && yPos != oszlopok-1 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('S') && mozgas_iranya(palya_matrix[yPos + 1, xPos]).Contains('W') && mezo_ellenorzes(palya_matrix[yPos + 1, xPos], true))
+                        {
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                            yPos++;
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                        }
+                        if (bill == 'd' && xPos != sorok-1 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('D') && mozgas_iranya(palya_matrix[yPos, xPos + 1]).Contains('A') && mezo_ellenorzes(palya_matrix[yPos, xPos + 1], true))
+                        {
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.BackgroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                            xPos++;
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.SetCursorPosition(xPos + 5, yPos + 7);
+                            Console.WriteLine(palya_matrix[yPos, xPos]);
+                        }
 
+                    }
                 }
             }
+
         }
         static void multiplayer()
         {
@@ -573,6 +635,108 @@ namespace Labyrinth
             menu();
 
 
+        }
+        static string mozgas_iranya(char mezo)
+        {
+            string iranyok = "";
+            if (mezo == '╬')
+            {
+                iranyok = "WASD";
+            }
+            else if (mezo == '═')
+            {
+                iranyok = "AD";
+            }
+            else if (mezo == '╦')
+            {
+                iranyok = "ASD";
+            }
+            else if (mezo == '╩')
+            {
+                iranyok = "WAD";
+            }
+            else if (mezo == '║')
+            {
+                iranyok = "WS";
+            }
+            else if (mezo == '╣')
+            {
+                iranyok = "WAS";
+            }
+            else if (mezo == '╠')
+            {
+                iranyok = "WSD";
+            }
+            else if (mezo == '╗')
+            {
+                iranyok = "AS";
+            }
+            else if (mezo == '╝')
+            {
+                iranyok = "WA";
+            }
+            else if (mezo == '╚')
+            {
+                iranyok = "WD";
+            }
+            else if (mezo == '╔')
+            {
+                iranyok = "SD";
+            }
+            return iranyok;
+        }
+        static bool mezo_ellenorzes(char mezo, bool room)
+        {
+            bool valos = false;
+            if (mezo == '╬')
+            {
+                valos = true;
+            }
+            else if (mezo == '═')
+            {
+                valos = true;
+            }
+            else if (mezo == '╦')
+            {
+                valos = true;
+            }
+            else if (mezo == '╩')
+            {
+                valos = true;
+            }
+            else if (mezo == '║')
+            {
+                valos = true;
+            }
+            else if (mezo == '╣')
+            {
+                valos = true;
+            }
+            else if (mezo == '╠')
+            {
+                valos = true;
+            }
+            else if (mezo == '╗')
+            {
+                valos = true;
+            }
+            else if (mezo == '╝')
+            {
+                valos = true;
+            }
+            else if (mezo == '╚')
+            {
+                valos = true;
+            }
+            else if (mezo == '╔')
+            {
+                valos = true;
+            }
+            else if (mezo == '█' && room)
+            {
+                valos = true;
+            }
+            return valos;
         }
     }
 }
