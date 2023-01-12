@@ -10,6 +10,11 @@ namespace Labyrinth
 {
     class Program
     {
+        //Global variables
+        private static int remaring_time = 30;
+        private static int lepesek = -1;
+        private static int felfedezett_szobak = 0;
+
         static void menu()
         {
             Console.Clear();
@@ -352,8 +357,8 @@ namespace Labyrinth
                         } while (olvasas_sikreres);
                     }
                     palya_betoltese(palya_listaban);
-                    
-                    
+
+
                 }
                 else if (mode == 2)
                 {
@@ -397,38 +402,40 @@ namespace Labyrinth
 
                 int kozepre_oszlop = 5;
                 int kozepre_sor = 7;
-                int yPos = 0;
-                int xPos = 0;
+                Random random = new Random();
+                int veletlen = random.Next(0, spawn(game_level, sorok, oszlopok).Item1.Count);
+                int yPos = spawn(game_level, sorok, oszlopok).Item1[veletlen];
+                int xPos = spawn(game_level, sorok, oszlopok).Item2[veletlen];
                 for (int isor = 0; isor < oszlopok; isor++)
                 {
                     string sor = "";
                     for (int ioszlop = 0; ioszlop < sorok; ioszlop++)
                     {
                         sor += game_level[isor, ioszlop];
-                        if (mezo_ellenorzes(game_level[isor, ioszlop], false))
-                        {
-                            yPos = isor;
-                            xPos = ioszlop;
-                        }
                     }
                     Console.SetCursorPosition(kozepre_oszlop, kozepre_sor);
                     Console.WriteLine(sor);
                     kozepre_sor++;
                 }
+                Console.WriteLine(spawn(game_level, sorok, oszlopok).Item1[0] + "," + spawn(game_level, sorok, oszlopok).Item2[0]);
                 singlepalyer_game(game_level, xPos, yPos, oszlopok, sorok);
             }
             static void singlepalyer_game(char[,] palya_matrix, int xPos, int yPos, int oszlopok, int sorok)
             {
+                Console.SetCursorPosition(0, 0);
                 Console.SetCursorPosition(xPos + 5, yPos + 7);
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.WriteLine(palya_matrix[yPos, xPos]);
-
-                while (true)
+                steps_update();
+                var rooms = new Dictionary<string, bool>();
+                room_search(palya_matrix, rooms, oszlopok, sorok);
+                var idozito = new Timer(stopperora, null, 0, 1000);
+                while (Program.remaring_time > 0)
                 {
                     char bill = Console.ReadKey(true).KeyChar;
                     if (bill == 'w' || bill == 'a' || bill == 's' || bill == 'd')
                     {
-                        if (bill == 'w' && yPos != 0 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('W') && mozgas_iranya(palya_matrix[yPos - 1, xPos]).Contains('S') && mezo_ellenorzes(palya_matrix[yPos - 1, xPos], true))
+                        if (bill == 'w' && yPos != 0 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('W') && mozgas_iranya(palya_matrix[yPos - 1, xPos]).Contains('S') && mezo_ellenorzes(palya_matrix[yPos - 1, xPos], true) && Program.remaring_time > 0)
                         {
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.BackgroundColor = ConsoleColor.Magenta;
@@ -437,8 +444,10 @@ namespace Labyrinth
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.WriteLine(palya_matrix[yPos, xPos]);
+                            room_check(palya_matrix, rooms, xPos, yPos);
+                            steps_update();
                         }
-                        if (bill == 'a' && xPos != 0 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('A') && mozgas_iranya(palya_matrix[yPos, xPos - 1]).Contains('D') && mezo_ellenorzes(palya_matrix[yPos, xPos - 1], true))
+                        if (bill == 'a' && xPos != 0 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('A') && mozgas_iranya(palya_matrix[yPos, xPos - 1]).Contains('D') && mezo_ellenorzes(palya_matrix[yPos, xPos - 1], true) && Program.remaring_time > 0)
                         {
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.BackgroundColor = ConsoleColor.Magenta;
@@ -447,8 +456,10 @@ namespace Labyrinth
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.WriteLine(palya_matrix[yPos, xPos]);
+                            room_check(palya_matrix, rooms, xPos, yPos);
+                            steps_update();
                         }
-                        if (bill == 's' && yPos != oszlopok-1 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('S') && mozgas_iranya(palya_matrix[yPos + 1, xPos]).Contains('W') && mezo_ellenorzes(palya_matrix[yPos + 1, xPos], true))
+                        if (bill == 's' && yPos != oszlopok - 1 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('S') && mozgas_iranya(palya_matrix[yPos + 1, xPos]).Contains('W') && mezo_ellenorzes(palya_matrix[yPos + 1, xPos], true) && Program.remaring_time > 0)
                         {
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.BackgroundColor = ConsoleColor.Magenta;
@@ -457,8 +468,10 @@ namespace Labyrinth
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.WriteLine(palya_matrix[yPos, xPos]);
+                            room_check(palya_matrix, rooms, xPos, yPos);
+                            steps_update();
                         }
-                        if (bill == 'd' && xPos != sorok-1 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('D') && mozgas_iranya(palya_matrix[yPos, xPos + 1]).Contains('A') && mezo_ellenorzes(palya_matrix[yPos, xPos + 1], true))
+                        if (bill == 'd' && xPos != sorok - 1 && mozgas_iranya(palya_matrix[yPos, xPos]).Contains('D') && mozgas_iranya(palya_matrix[yPos, xPos + 1]).Contains('A') && mezo_ellenorzes(palya_matrix[yPos, xPos + 1], true) && Program.remaring_time > 0)
                         {
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.BackgroundColor = ConsoleColor.Magenta;
@@ -467,6 +480,8 @@ namespace Labyrinth
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.SetCursorPosition(xPos + 5, yPos + 7);
                             Console.WriteLine(palya_matrix[yPos, xPos]);
+                            room_check(palya_matrix, rooms, xPos, yPos);
+                            steps_update();
                         }
 
                     }
@@ -683,6 +698,10 @@ namespace Labyrinth
             {
                 iranyok = "SD";
             }
+            else if (mezo == '█')
+            {
+                iranyok = "WASD";
+            }
             return iranyok;
         }
         static bool mezo_ellenorzes(char mezo, bool room)
@@ -737,6 +756,162 @@ namespace Labyrinth
                 valos = true;
             }
             return valos;
+        }
+        static Tuple<List<int>, List<int>> spawn(char[,] palya_matrix, int YPOS, int XPOS)
+        {
+            List<int> kijaratok_lista_sor = new List<int>();
+            List<int> kijaratok_lista_oszlop = new List<int>();
+            Console.SetCursorPosition(0, 40);
+            for (int isor = 0; isor < XPOS - 1; isor++)
+            {
+                if (palya_matrix[isor, 0] == '═' || palya_matrix[isor, 0] == '╣')
+                {
+                    kijaratok_lista_sor.Add(isor);
+                    kijaratok_lista_oszlop.Add(0);
+                }
+            }
+            for (int isormax = 0; isormax < XPOS - 1; isormax++)
+            {
+                if (palya_matrix[isormax, YPOS - 1] == '═' || palya_matrix[isormax, YPOS - 1] == '╠')
+                {
+                    kijaratok_lista_sor.Add(isormax);
+                    kijaratok_lista_oszlop.Add(YPOS - 1);
+                }
+            }
+            for (int ioszlop = 0; ioszlop < YPOS - 1; ioszlop++)
+            {
+                if (palya_matrix[0, ioszlop] == '║' || palya_matrix[0, ioszlop] == '╩')
+                {
+                    kijaratok_lista_sor.Add(0);
+                    kijaratok_lista_oszlop.Add(ioszlop);
+                }
+            }
+            for (int ioszlopmax = 0; ioszlopmax < YPOS - 1; ioszlopmax++)
+            {
+                if (palya_matrix[XPOS - 1, ioszlopmax] == '║' || palya_matrix[XPOS - 1, ioszlopmax] == '╦')
+                {
+                    kijaratok_lista_sor.Add(XPOS - 1);
+                    kijaratok_lista_oszlop.Add(ioszlopmax);
+                }
+            }
+            return Tuple.Create(kijaratok_lista_sor, kijaratok_lista_oszlop);
+        }
+        private static void stopperora(object o)
+        {
+            Console.SetCursorPosition(1, 1);
+            if (Program.remaring_time != 0)
+            {
+                Program.remaring_time -= 1;
+            }
+            TextReader tr = new StreamReader("../../../lang.txt");
+            string language = tr.ReadLine();
+            tr.Close();
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Black;
+            if (language == "hu")
+            {
+                if (Program.remaring_time < 10)
+                {
+                    Console.Write("Hátralévő idő:  " + Program.remaring_time + " mp");
+                }
+                else
+                {
+                    Console.Write("Hátralévő idő: " + Program.remaring_time + " mp");
+                }
+            }
+            else
+            {
+                if (Program.remaring_time < 10)
+                {
+                    Console.Write("Remaring time:  " + Program.remaring_time + " mp");
+                }
+                else
+                {
+                    Console.Write("Remaring time: " + Program.remaring_time + " mp");
+                }
+            }
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+
+
+        }
+        static void steps_update()
+        {
+            TextReader tr = new StreamReader("../../../lang.txt");
+            string language = tr.ReadLine();
+            tr.Close();
+            Program.lepesek++;
+            Console.SetCursorPosition(1, 2);
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Black;
+            if (language == "hu")
+            {
+                Console.WriteLine("Lépések: " + Program.lepesek);
+            }
+            else
+            {
+                Console.WriteLine("Steps: " + Program.lepesek);
+            }
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+        static void room_search(char[,] palya, Dictionary<string, bool> rooms, int oszlopok, int sorok)
+        {
+            for (int sor_index = 0; sor_index < sorok; sor_index++)
+            {
+                for (int oszlop_index = 0; oszlop_index < oszlopok; oszlop_index++)
+                {
+                    if (palya[oszlop_index, sor_index] == '█')
+                    {
+                        rooms.Add(oszlop_index + "," + sor_index, false);
+                    }
+                }
+            }
+            TextReader tr = new StreamReader("../../../lang.txt");
+            string language = tr.ReadLine();
+            tr.Close();
+            Program.lepesek++;
+            Console.SetCursorPosition(1, 3);
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Black;
+            if (language == "hu")
+            {
+                Console.WriteLine("Felfedezett szobak: " + Program.felfedezett_szobak + " / "+rooms.Count);
+            }
+            else
+            {
+                Console.WriteLine("Explored rooms: " + Program.felfedezett_szobak + " / " + rooms.Count);
+            }
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+        }
+        static void room_check(char[,] palya, Dictionary<string, bool> rooms, int xPos, int yPos)
+        {
+            TextReader tr = new StreamReader("../../../lang.txt");
+            string language = tr.ReadLine();
+            tr.Close();
+            Program.lepesek++;
+            if (rooms.ContainsKey(yPos+","+xPos))
+            {
+                if (rooms[yPos + "," + xPos] == false)
+                {
+                    rooms[yPos + "," + xPos] = true;
+                    Program.felfedezett_szobak++;
+                    Console.SetCursorPosition(1, 3);
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    if (language == "hu")
+                    {
+                        Console.WriteLine("Felfedezett szobak: " + Program.felfedezett_szobak + " / " + rooms.Count);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Explored rooms: " + Program.felfedezett_szobak + " / " + rooms.Count);
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+            }
         }
     }
 }
