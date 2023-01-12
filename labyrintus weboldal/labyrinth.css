@@ -133,7 +133,8 @@ div[class="container"] {
 }
 
 footer {
-  margin-top: 1cm;
+  border-top: 2cm solid darkgreen;
+  margin-top: -1cm;
   background-color: black;
   color: white;
 }
