@@ -39,8 +39,23 @@ nav {
 
 /*BODY*/
 
-body {
-  background-color: darkgreen;
+.z_index {
+  z-index: 10;
+  position: relative;
+}
+
+.z_index_gomb_bal {
+  z-index: 11;
+  position: relative;
+  top: -500px;
+  left: -100px;
+}
+
+.z_index_gomb_jobb {
+  z-index: 11;
+  position: relative;
+  top: -500px;
+  right: -100px;
 }
 
 .carousel-item {

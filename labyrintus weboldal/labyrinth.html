@@ -41,12 +41,12 @@
             </div>
         </div>
     </nav>
-    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
+    <div class="zold" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
         data-bs-smooth-scroll="true" tabindex="0">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+            <div class="carousel-inner z_index">
                 <div class="carousel-item active">
-                    <!--A kép forrása: https://pixabay.com/photos/urban-montreal-downtown-streetscape-2004494/-->
+                <!--A kép forrása: https://pixabay.com/photos/urban-montreal-downtown-streetscape-2004494/-->
                     <img src="Új mappa/labyrinth_first_scr.png" class="d-block w-100" alt="Labirintus fotó">
                 </div>
                 <!--A kép forrása: https://pixabay.com/photos/brick-wall-chairs-furniture-1834784/-->
@@ -62,16 +62,21 @@
                     <p>Mi segítünk kijutni!</p>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="z_index_gomb_bal">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+            </div>
+            <div class="z_index_gomb_jobb">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
         <!--Labirintus-->
         <div id="scrollspyHeading1" class="container">
             <h1 class="cim">Labirintus</h1>
