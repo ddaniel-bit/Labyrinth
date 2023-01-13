@@ -1,0 +1,16 @@
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\bin\Debug\netcoreapp3.1\ConsoleApp9.exe
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\bin\Debug\netcoreapp3.1\ConsoleApp9.deps.json
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\bin\Debug\netcoreapp3.1\ConsoleApp9.runtimeconfig.json
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\bin\Debug\netcoreapp3.1\ConsoleApp9.runtimeconfig.dev.json
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\bin\Debug\netcoreapp3.1\ConsoleApp9.dll
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\bin\Debug\netcoreapp3.1\ConsoleApp9.pdb
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.AssemblyInfoInputs.cache
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.AssemblyInfo.cs
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.csproj.CoreCompileInputs.cache
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.dll
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.pdb
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.genruntimeconfig.cache
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\bin\Debug\netcoreapp3.1\Xamarin.Essentials.dll
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.csproj.AssemblyReference.cache
+C:\Users\Felhasznalo\source\repos\ConsoleApp9\ConsoleApp9\obj\Debug\netcoreapp3.1\ConsoleApp9.csproj.CopyComplete

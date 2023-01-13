@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "nT00HwqRlqpLWXpxagfx+uzll/v19Bg6YwvlImoTc++6hwlv9eyAoFoRpL6m2Fvzz8A46P1Qpys81nBZ7Y3/sQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Felhasznalo\\source\\repos\\ConsoleApp9\\ConsoleApp9\\ConsoleApp9.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Felhasznalo\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Felhasznalo\\.nuget\\packages\\xamarin.essentials\\1.7.4\\xamarin.essentials.1.7.4.nupkg.sha512"
+  ],
+  "logs": []
+}
