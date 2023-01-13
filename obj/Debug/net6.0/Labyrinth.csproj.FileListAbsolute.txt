@@ -13,3 +13,12 @@ D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Deb
 D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.pdb
 D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.genruntimeconfig.cache
 D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\ref\Labyrinth.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\FireSharp.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Microsoft.Threading.Tasks.Extensions.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Microsoft.Threading.Tasks.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\System.Net.Http.Extensions.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\System.Net.Http.Primitives.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Dani mappája\.Home office\Projektmunka\Labyrinth\Labyrinth\Labyrinth\obj\Debug\net6.0\Labyrinth.csproj.CopyComplete
