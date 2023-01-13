@@ -37,6 +37,15 @@ nav {
   color: white;
 }
 
+.nyelv {
+  position: relative;
+  left: 100px;
+}
+
+u {
+  color: brown;
+}
+
 /*BODY*/
 
 .z_index {
